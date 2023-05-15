@@ -6,20 +6,23 @@ import Homepage from "./components/Homepage";
 import Day from "./components/Day";
 import Recipe from "./components/Recipe";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Homepage />,
-  },
-  {
-    path: "/day/:dayIndex",
-    element: <Day />,
-  },
-  {
-    path: "/day/:dayIndex/meal/:mealIndex",
-    element: <Recipe />,
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Homepage />,
+    },
+    {
+      path: "/day/:dayIndex",
+      element: <Day />,
+    },
+    {
+      path: "/day/:dayIndex/meal/:mealIndex",
+      element: <Recipe />,
+    },
+  ],
+  { basename: import.meta.env.DEV ? "/" : "/diet/" }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
