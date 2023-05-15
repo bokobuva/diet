@@ -8,7 +8,7 @@ const Homepage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/diet.json");
+        const response = await fetch("/dieta.json");
         const data = await response.json();
         setDays(data);
       } catch (error) {

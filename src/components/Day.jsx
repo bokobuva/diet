@@ -12,7 +12,7 @@ const Day = () => {
     if (params.dayIndex) {
       const fetchData = async (dayIndex) => {
         try {
-          const response = await fetch("/diet.json");
+          const response = await fetch("/dieta.json");
           const data = await response.json();
           console.log(data);
           setDay(data[dayIndex]);

@@ -11,7 +11,7 @@ const Recipe = () => {
     if (params.dayIndex && params.mealIndex) {
       const fetchData = async (dayIndex, mealIndex) => {
         try {
-          const response = await fetch("/diet.json");
+          const response = await fetch("/dieta.json");
           const data = await response.json();
           console.log(data);
           setRecipe(data[dayIndex].meals[mealIndex]);
