@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import StyledButton from "./shared/Button";
 import { Container } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { diet } from "../consts/diet";
 
 const Day = () => {
   const [day, setDay] = useState(null);
@@ -10,18 +11,7 @@ const Day = () => {
 
   useEffect(() => {
     if (params.dayIndex) {
-      const fetchData = async (dayIndex) => {
-        try {
-          const response = await fetch("/dieta.json");
-          const data = await response.json();
-          console.log(data);
-          setDay(data[dayIndex]);
-        } catch (error) {
-          console.error("Error fetching JSON data:", error);
-        }
-      };
-
-      fetchData(params.dayIndex);
+      setDay(diet[params.dayIndex]);
     }
   }, [params]);
   return (

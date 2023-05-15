@@ -1,23 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import StyledButton from "./shared/Button";
 import { Container } from "@mui/material";
+import { diet } from "../consts/diet";
 
 const Homepage = () => {
-  const [days, setDays] = useState(null);
+  const [days] = useState(diet);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/dieta.json");
-        const data = await response.json();
-        setDays(data);
-      } catch (error) {
-        console.error("Error fetching JSON data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   return (
     <Container>
       <ul style={{ display: "flex", flexDirection: "column" }}>

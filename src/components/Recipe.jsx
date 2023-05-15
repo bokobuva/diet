@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { useParams } from "react-router-dom";
+import { diet } from "../consts/diet";
 
 const Recipe = () => {
   const [recipe, setRecipe] = useState(null);
@@ -9,18 +10,7 @@ const Recipe = () => {
 
   useEffect(() => {
     if (params.dayIndex && params.mealIndex) {
-      const fetchData = async (dayIndex, mealIndex) => {
-        try {
-          const response = await fetch("/dieta.json");
-          const data = await response.json();
-          console.log(data);
-          setRecipe(data[dayIndex].meals[mealIndex]);
-        } catch (error) {
-          console.error("Error fetching JSON data:", error);
-        }
-      };
-
-      fetchData(params.dayIndex, params.mealIndex);
+      setRecipe(diet[params.dayIndex].meals[params.mealIndex]);
     }
   }, [params]);
   return (
